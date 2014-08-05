@@ -3,9 +3,9 @@
 angular.module('suggestDishApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('main', {
+      .state('suggestDish', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/suggest-dish/suggest-dish.html',
+        controller: 'SuggestDishCtrl'
       });
   });
