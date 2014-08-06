@@ -74,8 +74,9 @@
                         <div class="col-xs-1">
                             <span class="sd-label">GetFitScore</span>
                         </div>
-                        <div class="col-xs-2 col-xs-offset-1">
-                            <input type="text" class="form-control" data-ng-init="fitScore='0/10'" data-ng-model="fitScore" disabled>
+                        <div class="col-xs-2 col-xs-offset-1" data-ng-init="fitScore=10">
+                            <span data-ng-show="fitScore > 0" class="label label-default">{{fitScore}}/10</span>
+                            <span data-ng-show="fitScore <= 0" class="label label-default">0/10</span>
                         </div>
                     </div>
                     <div class="row">
@@ -83,12 +84,12 @@
                             Contains Dairy:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasButter"> Butter</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasMilk"> Milk</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasCheese"> Cheese</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasYoughurt"> Youghurt</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasCottogeCheese"> Cottoge Cheese</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasCream"> Cream</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasButter" data-ng-change="updateScore(dish.containsDairy.hasButter)"> Butter</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasMilk" data-ng-change="updateScore(dish.containsDairy.hasMilk)"> Milk</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasCheese" data-ng-change="updateScore(dish.containsDairy.hasCheese)"> Cheese</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasYoughurt" data-ng-change="updateScore(dish.containsDairy.hasYoughurt)"> Youghurt</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasCottogeCheese" data-ng-change="updateScore(dish.containsDairy.hasCottogeCheese)"> Cottoge Cheese</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasCream" data-ng-change="updateScore(dish.containsDairy.hasCream)"> Cream</span>
                         </div>
                     </div>
                     <div class="row">
@@ -96,14 +97,14 @@
                             Contains Grains:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasWheat"> Wheat</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasRice"> Rice</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasCorn"> Corn</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasGFFlours"> GF Flours</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasOots"> Oots</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasBuckwheat"> Buckwheat</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasBurley"> Burley</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasUnknown"> Unknown</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasWheat" data-ng-change="updateScore(dish.containsGrains.hasWheat)"> Wheat</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasRice" data-ng-change="updateScore(dish.containsGrains.hasRice)"> Rice</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasCorn" data-ng-change="updateScore(dish.containsGrains.hasCorn)"> Corn</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasGFFlours" data-ng-change="updateScore(dish.containsGrains.hasGFFlours)"> GF Flours</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasOots" data-ng-change="updateScore(dish.containsGrains.hasOots)"> Oots</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasBuckwheat" data-ng-change="updateScore(dish.containsGrains.hasBuckwheat)"> Buckwheat</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasBurley" data-ng-change="updateScore(dish.containsGrains.hasBurley)"> Burley</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasUnknown" data-ng-change="updateScore(dish.containsGrains.hasUnknown)"> Unknown</span>
                         </div>
                     </div>
                     <div class="row">
@@ -111,12 +112,12 @@
                             Contains Legumes:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasBeans"> Beans</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasLentils"> Lentils</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasPeanut"> Peanut</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasPeas"> Peas</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasSoybean"> Soybean</span>
-                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasTofu"> Tofu</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasBeans" data-ng-change="updateScore(dish.containsLegumes.hasBeans)"> Beans</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasLentils" data-ng-change="updateScore(dish.containsLegumes.hasLentils)"> Lentils</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasPeanut" data-ng-change="updateScore(dish.containsLegumes.hasPeanut)"> Peanut</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasPeas" data-ng-change="updateScore(dish.containsLegumes.hasPeas)"> Peas</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasSoybean" data-ng-change="updateScore(dish.containsLegumes.hasSoybean)"> Soybean</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasTofu" data-ng-change="updateScore(dish.containsLegumes.hasTofu)"> Tofu</span>
                         </div>
                     </div>
                     <div class="row">
@@ -124,11 +125,11 @@
                             Meat Quality:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasHotdogMeat"> Hotdog meat</span>
-                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasCuredMeats"> Cured Meats (Boon etc)</span>
-                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasNotOrganic"> Not Organic</span>
-                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasContainsHormones"> Contains Hormones</span>
-                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasUnknown"> Unknown</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasHotdogMeat" data-ng-change="updateScore(dish.meatQuality.hasHotdogMeat)"> Hotdog meat</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasCuredMeats" data-ng-change="updateScore(dish.meatQuality.hasCuredMeats)"> Cured Meats (Boon etc)</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasNotOrganic" data-ng-change="updateScore(dish.meatQuality.hasNotOrganic)"> Not Organic</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasContainsHormones" data-ng-change="updateScore(dish.meatQuality.hasContainsHormones)"> Contains Hormones</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasUnknown" data-ng-change="updateScore(dish.meatQuality.hasUnknown)"> Unknown</span>
                         </div>
                     </div>
                     <div class="row">
@@ -136,10 +137,10 @@
                             Starchy Vegetables:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasPhoto"> Photo</span>
-                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasSweetPotato"> Sweet Potato/Yams</span>
-                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasSquash"> Squash</span>
-                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasBeets"> Beets</span>
+                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasPhoto" data-ng-change="updateScore(dish.starchyVegetables.hasPhoto)"> Photo</span>
+                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasSweetPotato" data-ng-change="updateScore(dish.starchyVegetables.hasSweetPotato)"> Sweet Potato/Yams</span>
+                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasSquash" data-ng-change="updateScore(dish.starchyVegetables.hasSquash)"> Squash</span>
+                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasBeets" data-ng-change="updateScore(dish.starchyVegetables.hasBeets)"> Beets</span>
                         </div>
                     </div>
                     <div class="row">

@@ -7,6 +7,10 @@ angular.module('suggestDishApp')
     $scope.messages.showError = false;
     var googleService = initGoogleApi();
 
+    $scope.updateScore = function(isProp) {
+      $scope.fitScore += isProp ? -1 : +1;
+    };
+
     $scope.dishImageUpload = function(file, message) {
       var res = JSON.parse(message);
       $scope.dish.imageUrl = res.url;
@@ -109,7 +113,6 @@ angular.module('suggestDishApp')
 
           var SuggestedDishApi = $resource('/api/suggestedDish');
 
-//          //TODO: calculate score
           var res = SuggestedDishApi.save(suggestedDish, function (resp) {
             $scope.messages.showSuccess = true;
             $scope.messages.showError = false;
