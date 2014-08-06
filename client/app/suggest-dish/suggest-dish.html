@@ -1,15 +1,27 @@
 <div class="suggest-dish-container">
-    <form class="form-horizontal" name="dishForm"novalidate>
-        <div class="container">
+    <div class="container">
+        <div class="col-xs-12">
             <div class="row">
-                <div class="col-xs-4">
-                    <h2>BellyBusterGuide</h2>
+                <div class="alert alert-success alert-dismissible" data-ng-show="messages.showSuccess">
+                    <button type="button" class="close"><span aria-hidden="true" data-ng-click="messages.showSuccess=false;">&times;</span><span class="sr-only">Close</span></button>
+                    <strong>Well done!</strong> Your suggested dish was successfully added!
                 </div>
-                <div class="col-xs-4 float-right">
-                    <input type="text" class="form-control" placeholder="Search" tooltip="It Is Not Implemented">
+                <div class="alert alert-danger alert-dismissible" data-ng-show="messages.showError">
+                    <button type="button" class="close"><span aria-hidden="true" data-ng-click="messages.showError=false;">&times;</span><span class="sr-only">Close</span></button>
+                    <strong>Warning!</strong> Please fill all required fields and try again.
                 </div>
             </div>
-            <hr />
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <h2>BellyBusterGuide</h2>
+            </div>
+            <div class="col-xs-4 float-right">
+                <input type="text" class="form-control" placeholder="Search" tooltip="It Is Not Implemented">
+            </div>
+        </div>
+        <hr />
+        <form class="form-horizontal" name="dishForm"novalidate>
             <div class="row">
                 <div class="col-xs-4">
                     <div class="sd-label-error" data-ng-show="hadSubmitted && !dishForm.location.$valid">Required</div>
@@ -55,9 +67,7 @@
                         <div class="col-xs-10" data-flow-init="{target: '/upload'}">
                             <span class="sd-label">Image:</span>
                             <button type="button" class="btn btn-default" data-flow-files-submitted="$flow.upload()" data-flow-file-success="dishImageUpload($file, $message)" data-flow-btn>Upload Image</button>
-                            <div data-ng-repeat="file in $flow.files">
-                                <td>{{file.name}}</td>
-                            </div>
+                            <div>{{dish.fileName}}</div>
                         </div>
                     </div>
                     <div class="row">
@@ -158,6 +168,8 @@
                     <br>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+    <!--little trick, google places js API requires to use map element-->
+    <div style="visibility: hidden" id="map"></div>
 </div>

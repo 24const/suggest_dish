@@ -17,6 +17,7 @@ var SuggesteddishSchema = new Schema({
     },
     neighborhood: String
   },
+  restaurantName: String,
   dishName: String,
   price: Number,
   snippet: String,
