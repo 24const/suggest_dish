@@ -1,19 +1,20 @@
 <div class="suggest-dish-container">
-    <form class="form-horizontal">
+    <form class="form-horizontal" name="dishForm"novalidate>
         <div class="container">
             <div class="row">
                 <div class="col-xs-4">
                     <h2>BellyBusterGuide</h2>
                 </div>
                 <div class="col-xs-4 float-right">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Search" tooltip="It Is Not Implemented">
                 </div>
             </div>
             <hr />
             <div class="row">
                 <div class="col-xs-4">
+                    <div class="sd-label-error" data-ng-show="hadSubmitted && !dishForm.location.$valid">Required</div>
                     <span class="sd-label">Location:</span>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" required name="location" data-ng-model="location">
                 </div>
             </div>
 
@@ -24,18 +25,21 @@
                 <div class="col-xs-10 border">
                     <div class="row">
                         <div class="col-xs-6">
+                            <div class="sd-label-error" data-ng-show="hadSubmitted && !dishForm.dishName.$valid">Required</div>
                             <span class="sd-label">Name:</span>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="dishName" required data-ng-model="dish.dishName">
                         </div>
                         <div class="col-xs-3 col-xs-offset-1">
+                            <div class="sd-label-error" data-ng-show="hadSubmitted && !dishForm.price.$valid">Required (it must be number)</div>
                             <span class="sd-label">Price:</span>
-                            <input type="number" class="form-control">
+                            <input type="number" class="form-control" name="price" required data-ng-model="dish.price">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-10">
+                            <div class="sd-label-error" data-ng-show="hadSubmitted && !dishForm.snippet.$valid">Required</div>
                             <span class="sd-label">Snippet (Describe the dish & how to order it):</span>
-                            <textarea type="text" class="form-control" rows="4"></textarea>
+                            <textarea type="text" class="form-control" rows="4" name="snippet" required data-ng-model="dish.snippet"></textarea>
                         </div>
                     </div>
                     <div class="row">
@@ -43,14 +47,14 @@
                             <span class="sd-label">Is This A Full MealMain Meal</span>
                         </div>
                         <div class="col-xs-3">
-                            <input type="radio" name="fullMeal" value="true">Yes
-                            <input type="radio" name="fullMeal" value="false">No
+                            <input type="radio" name="fullMeal" value="true" data-ng-model="dish.isFullMeal">Yes
+                            <input type="radio" name="fullMeal" value="false" data-ng-model="dish.isFullMeal">No
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-10">
-                            <span class="sd-label">Image</span>
-                            <img data-src="holder.js/100%x180" alt="100%x180" src="assets/images/image_stub.jpg" style="height: 130px; display: block;">
+                            <span class="sd-label">Image:</span>
+                            <input type="file" />
                         </div>
                     </div>
                     <div class="row">
@@ -58,7 +62,7 @@
                             <span class="sd-label">GetFitScore</span>
                         </div>
                         <div class="col-xs-2 col-xs-offset-1">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" data-ng-init="fitScore='0/10'" data-ng-model="fitScore" disabled>
                         </div>
                     </div>
                     <div class="row">
@@ -66,12 +70,12 @@
                             Contains Dairy:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox"> Butter</span>
-                            <span><input type="checkbox"> Milk</span>
-                            <span><input type="checkbox"> Cheese</span>
-                            <span><input type="checkbox"> Youghurt</span>
-                            <span><input type="checkbox"> Cottoge Cheese</span>
-                            <span><input type="checkbox"> Cream</span>
+                            <span><input type="checkbox" data-ng-model="dish.dairy.hasButter"> Butter</span>
+                            <span><input type="checkbox" data-ng-model="dish.dairy.hasMilk"> Milk</span>
+                            <span><input type="checkbox" data-ng-model="dish.dairy.hasCheese"> Cheese</span>
+                            <span><input type="checkbox" data-ng-model="dish.dairy.hasYoughurt"> Youghurt</span>
+                            <span><input type="checkbox" data-ng-model="dish.dairy.hasCottogeCheese"> Cottoge Cheese</span>
+                            <span><input type="checkbox" data-ng-model="dish.dairy.hasCream"> Cream</span>
                         </div>
                     </div>
                     <div class="row">
@@ -79,14 +83,14 @@
                             Contains Grains:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox"> Wheat</span>
-                            <span><input type="checkbox"> Rice</span>
-                            <span><input type="checkbox"> Corn</span>
-                            <span><input type="checkbox"> GF Flours</span>
-                            <span><input type="checkbox"> Oots</span>
-                            <span><input type="checkbox"> Buckwheat</span>
-                            <span><input type="checkbox"> Burley</span>
-                            <span><input type="checkbox"> Unknown</span>
+                            <span><input type="checkbox" data-ng-model="dish.grains.hasWheat"> Wheat</span>
+                            <span><input type="checkbox" data-ng-model="dish.grains.hasRice"> Rice</span>
+                            <span><input type="checkbox" data-ng-model="dish.grains.hasCorn"> Corn</span>
+                            <span><input type="checkbox" data-ng-model="dish.grains.hasGFFlours"> GF Flours</span>
+                            <span><input type="checkbox" data-ng-model="dish.grains.hasOots"> Oots</span>
+                            <span><input type="checkbox" data-ng-model="dish.grains.hasBuckwheat"> Buckwheat</span>
+                            <span><input type="checkbox" data-ng-model="dish.grains.hasBurley"> Burley</span>
+                            <span><input type="checkbox" data-ng-model="dish.grains.hasUnknown"> Unknown</span>
                         </div>
                     </div>
                     <div class="row">
@@ -94,12 +98,12 @@
                             Contains Legumes:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox"> Beans</span>
-                            <span><input type="checkbox"> Lentils</span>
-                            <span><input type="checkbox"> Peanut</span>
-                            <span><input type="checkbox"> Peas</span>
-                            <span><input type="checkbox"> Soybean</span>
-                            <span><input type="checkbox"> Tofu</span>
+                            <span><input type="checkbox" data-ng-model="dish.legumes.hasBeans"> Beans</span>
+                            <span><input type="checkbox" data-ng-model="dish.legumes.hasLentils"> Lentils</span>
+                            <span><input type="checkbox" data-ng-model="dish.legumes.hasPeanut"> Peanut</span>
+                            <span><input type="checkbox" data-ng-model="dish.legumes.hasPeas"> Peas</span>
+                            <span><input type="checkbox" data-ng-model="dish.legumes.hasSoybean"> Soybean</span>
+                            <span><input type="checkbox" data-ng-model="dish.legumes.hasTofu"> Tofu</span>
                         </div>
                     </div>
                     <div class="row">
@@ -107,11 +111,11 @@
                             Meat Quality:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox"> Hotdog meat</span>
-                            <span><input type="checkbox"> Cured Meats (Boon etc)</span>
-                            <span><input type="checkbox"> Not Organic</span>
-                            <span><input type="checkbox"> Contains Hormones</span>
-                            <span><input type="checkbox"> Unknown</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasHotdogMeat"> Hotdog meat</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasCuredMeats"> Cured Meats (Boon etc)</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasNotOrganic"> Not Organic</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasContainsHormones"> Contains Hormones</span>
+                            <span><input type="checkbox" data-ng-model="dish.meatQuality.hasUnknown"> Unknown</span>
                         </div>
                     </div>
                     <div class="row">
@@ -119,10 +123,10 @@
                             Starchy Vegetables:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox"> Photo</span>
-                            <span><input type="checkbox"> Sweet Potato/Yams</span>
-                            <span><input type="checkbox"> Squash</span>
-                            <span><input type="checkbox"> Beets</span>
+                            <span><input type="checkbox" data-ng-model="dish.vegetables.hasPhoto"> Photo</span>
+                            <span><input type="checkbox" data-ng-model="dish.vegetables.hasSweetPotato"> Sweet Potato/Yams</span>
+                            <span><input type="checkbox" data-ng-model="dish.vegetables.hasSquash"> Squash</span>
+                            <span><input type="checkbox" data-ng-model="dish.vegetables.hasBeets"> Beets</span>
                         </div>
                     </div>
                     <div class="row">
@@ -130,8 +134,8 @@
                             <span class="sd-label">Contains Added Sugar</span>
                         </div>
                         <div class="col-xs-3">
-                            <input type="radio" name="containsAddedSugar" value="true">Yes
-                            <input type="radio" name="containsAddedSugar" value="false">No
+                            <input type="radio" name="hasAddedSugar" value="true" data-ng-model="dish.hasAddedSugar">Yes
+                            <input type="radio" name="hasAddedSugar" value="false" data-ng-model="dish.hasAddedSugar">No
                         </div>
                     </div>
                     <div class="row">
@@ -139,13 +143,13 @@
                             <span class="sd-label">Unknown Ingredients (Souces etc)</span>
                         </div>
                         <div class="col-xs-3">
-                            <input type="radio" name="containsUnknownIngredients" value="true">Yes
-                            <input type="radio" name="containsUnknownIngredients" value="false">No
+                            <input type="radio" name="hasUnknownIngredients" value="true" data-ng-model="dish.hasUnknownIngredients">Yes
+                            <input type="radio" name="hasUnknownIngredients" value="false" data-ng-model="dish.hasUnknownIngredients">No
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-3">
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <button type="submit" class="btn btn-primary" data-ng-click="saveSuggestedDish()">Submit</button>
                         </div>
                     </div>
                     <br>

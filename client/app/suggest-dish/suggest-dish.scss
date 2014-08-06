@@ -1,5 +1,5 @@
 .suggest-dish-container {
-  padding-top: 20px;
+  padding-top: 40px;
   h2 {
     margin: 0;
   }
@@ -13,10 +13,9 @@
     }
   }
 
-//  .sd-label {
-//    margin-top: 10px;
-//    margin-bottom: 5px;
-//  }
+  .sd-label-error {
+    color: red
+  }
 }
 
 .border {
