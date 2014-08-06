@@ -4,6 +4,7 @@
   "main": "server/app.js",
   "dependencies": {
     "express": "~4.7.2",
+    "connect-multiparty": "~1.1.0",
     "morgan": "~1.0.0",
     "body-parser": "~1.5.2",
     "method-override": "~2.1.2",

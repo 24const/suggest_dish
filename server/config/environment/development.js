@@ -7,6 +7,7 @@ module.exports = {
   mongo: {
     uri: 'mongodb://localhost/suggestdish-dev'
   },
+  appUrl: 'http://localhost:9000',
 
   seedDB: true
 };
