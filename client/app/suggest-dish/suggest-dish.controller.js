@@ -18,7 +18,9 @@ angular.module('suggestDishApp')
         var SuggestedDishApi = $resource('/api/suggestedDish');
         var suggestedDish = $scope.dish;
 
-        //TODO: location
+        //TODO: retrieve location from google places API
+        //TODO: reset fields after save
+        //TODO: show success and failure message at the top of screen
         console.log("suggestedDish", suggestedDish);
         var res = SuggestedDishApi.save(suggestedDish, function(resp) {
           console.log("Success", resp);
