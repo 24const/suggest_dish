@@ -1,9 +1,32 @@
 .suggest-dish-container {
   padding-top: 20px;
+  h2 {
+    margin: 0;
+  }
+
+  .dish-information {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .row {
+      margin-top: 10px;
+    }
+  }
+
+//  .sd-label {
+//    margin-top: 10px;
+//    margin-bottom: 5px;
+//  }
 }
 
-.suggest-dish-container h2 {
-  margin: 0;
+.border {
+  margin-right: 0;
+  margin-left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .float-right {

@@ -1,13 +1,156 @@
 <div class="suggest-dish-container">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>BellyBusterGuide</h2>
+    <form class="form-horizontal">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <h2>BellyBusterGuide</h2>
+                </div>
+                <div class="col-xs-4 float-right">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
             </div>
-            <div class="col-lg-4 float-right">
-                <input type="text" class="form-control" placeholder="Search">
+            <hr />
+            <div class="row">
+                <div class="col-xs-4">
+                    <span class="sd-label">Location:</span>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+
+            <div class="row dish-information">
+                <div class="col-xs-6">
+                    <span class="sd-label">Dish Information</span>
+                </div>
+                <div class="col-xs-10 border">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span class="sd-label">Name:</span>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-xs-3 col-xs-offset-1">
+                            <span class="sd-label">Price:</span>
+                            <input type="number" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <span class="sd-label">Snippet (Describe the dish & how to order it):</span>
+                            <textarea type="text" class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="sd-label">Is This A Full MealMain Meal</span>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="radio" name="fullMeal" value="true">Yes
+                            <input type="radio" name="fullMeal" value="false">No
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <span class="sd-label">Image</span>
+                            <img data-src="holder.js/100%x180" alt="100%x180" src="assets/images/image_stub.jpg" style="height: 130px; display: block;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <span class="sd-label">GetFitScore</span>
+                        </div>
+                        <div class="col-xs-2 col-xs-offset-1">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            Contains Dairy:
+                        </div>
+                        <div class="col-xs-12">
+                            <span><input type="checkbox"> Butter</span>
+                            <span><input type="checkbox"> Milk</span>
+                            <span><input type="checkbox"> Cheese</span>
+                            <span><input type="checkbox"> Youghurt</span>
+                            <span><input type="checkbox"> Cottoge Cheese</span>
+                            <span><input type="checkbox"> Cream</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            Contains Grains:
+                        </div>
+                        <div class="col-xs-12">
+                            <span><input type="checkbox"> Wheat</span>
+                            <span><input type="checkbox"> Rice</span>
+                            <span><input type="checkbox"> Corn</span>
+                            <span><input type="checkbox"> GF Flours</span>
+                            <span><input type="checkbox"> Oots</span>
+                            <span><input type="checkbox"> Buckwheat</span>
+                            <span><input type="checkbox"> Burley</span>
+                            <span><input type="checkbox"> Unknown</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            Contains Legumes:
+                        </div>
+                        <div class="col-xs-12">
+                            <span><input type="checkbox"> Beans</span>
+                            <span><input type="checkbox"> Lentils</span>
+                            <span><input type="checkbox"> Peanut</span>
+                            <span><input type="checkbox"> Peas</span>
+                            <span><input type="checkbox"> Soybean</span>
+                            <span><input type="checkbox"> Tofu</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            Meat Quality:
+                        </div>
+                        <div class="col-xs-12">
+                            <span><input type="checkbox"> Hotdog meat</span>
+                            <span><input type="checkbox"> Cured Meats (Boon etc)</span>
+                            <span><input type="checkbox"> Not Organic</span>
+                            <span><input type="checkbox"> Contains Hormones</span>
+                            <span><input type="checkbox"> Unknown</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            Starchy Vegetables:
+                        </div>
+                        <div class="col-xs-12">
+                            <span><input type="checkbox"> Photo</span>
+                            <span><input type="checkbox"> Sweet Potato/Yams</span>
+                            <span><input type="checkbox"> Squash</span>
+                            <span><input type="checkbox"> Beets</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="sd-label">Contains Added Sugar</span>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="radio" name="containsAddedSugar" value="true">Yes
+                            <input type="radio" name="containsAddedSugar" value="false">No
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <span class="sd-label">Unknown Ingredients (Souces etc)</span>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="radio" name="containsUnknownIngredients" value="true">Yes
+                            <input type="radio" name="containsUnknownIngredients" value="false">No
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
             </div>
         </div>
-    </div>
-
+    </form>
 </div>
