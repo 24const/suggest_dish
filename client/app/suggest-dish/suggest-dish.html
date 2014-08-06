@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="col-xs-10" data-flow-init="{target: '/upload'}">
                             <span class="sd-label">Image:</span>
-                            <button type="button" class="btn btn-default" data-flow-files-submitted="$flow.upload()" data-flow-btn>Upload Image</button>
+                            <button type="button" class="btn btn-default" data-flow-files-submitted="$flow.upload()" data-flow-file-success="dishImageUpload($file, $message)" data-flow-btn>Upload Image</button>
                             <div data-ng-repeat="file in $flow.files">
                                 <td>{{file.name}}</td>
                             </div>
@@ -73,12 +73,12 @@
                             Contains Dairy:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox" data-ng-model="dish.dairy.hasButter"> Butter</span>
-                            <span><input type="checkbox" data-ng-model="dish.dairy.hasMilk"> Milk</span>
-                            <span><input type="checkbox" data-ng-model="dish.dairy.hasCheese"> Cheese</span>
-                            <span><input type="checkbox" data-ng-model="dish.dairy.hasYoughurt"> Youghurt</span>
-                            <span><input type="checkbox" data-ng-model="dish.dairy.hasCottogeCheese"> Cottoge Cheese</span>
-                            <span><input type="checkbox" data-ng-model="dish.dairy.hasCream"> Cream</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasButter"> Butter</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasMilk"> Milk</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasCheese"> Cheese</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasYoughurt"> Youghurt</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasCottogeCheese"> Cottoge Cheese</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsDairy.hasCream"> Cream</span>
                         </div>
                     </div>
                     <div class="row">
@@ -86,14 +86,14 @@
                             Contains Grains:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox" data-ng-model="dish.grains.hasWheat"> Wheat</span>
-                            <span><input type="checkbox" data-ng-model="dish.grains.hasRice"> Rice</span>
-                            <span><input type="checkbox" data-ng-model="dish.grains.hasCorn"> Corn</span>
-                            <span><input type="checkbox" data-ng-model="dish.grains.hasGFFlours"> GF Flours</span>
-                            <span><input type="checkbox" data-ng-model="dish.grains.hasOots"> Oots</span>
-                            <span><input type="checkbox" data-ng-model="dish.grains.hasBuckwheat"> Buckwheat</span>
-                            <span><input type="checkbox" data-ng-model="dish.grains.hasBurley"> Burley</span>
-                            <span><input type="checkbox" data-ng-model="dish.grains.hasUnknown"> Unknown</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasWheat"> Wheat</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasRice"> Rice</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasCorn"> Corn</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasGFFlours"> GF Flours</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasOots"> Oots</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasBuckwheat"> Buckwheat</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasBurley"> Burley</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsGrains.hasUnknown"> Unknown</span>
                         </div>
                     </div>
                     <div class="row">
@@ -101,12 +101,12 @@
                             Contains Legumes:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox" data-ng-model="dish.legumes.hasBeans"> Beans</span>
-                            <span><input type="checkbox" data-ng-model="dish.legumes.hasLentils"> Lentils</span>
-                            <span><input type="checkbox" data-ng-model="dish.legumes.hasPeanut"> Peanut</span>
-                            <span><input type="checkbox" data-ng-model="dish.legumes.hasPeas"> Peas</span>
-                            <span><input type="checkbox" data-ng-model="dish.legumes.hasSoybean"> Soybean</span>
-                            <span><input type="checkbox" data-ng-model="dish.legumes.hasTofu"> Tofu</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasBeans"> Beans</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasLentils"> Lentils</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasPeanut"> Peanut</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasPeas"> Peas</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasSoybean"> Soybean</span>
+                            <span><input type="checkbox" data-ng-model="dish.containsLegumes.hasTofu"> Tofu</span>
                         </div>
                     </div>
                     <div class="row">
@@ -126,10 +126,10 @@
                             Starchy Vegetables:
                         </div>
                         <div class="col-xs-12">
-                            <span><input type="checkbox" data-ng-model="dish.vegetables.hasPhoto"> Photo</span>
-                            <span><input type="checkbox" data-ng-model="dish.vegetables.hasSweetPotato"> Sweet Potato/Yams</span>
-                            <span><input type="checkbox" data-ng-model="dish.vegetables.hasSquash"> Squash</span>
-                            <span><input type="checkbox" data-ng-model="dish.vegetables.hasBeets"> Beets</span>
+                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasPhoto"> Photo</span>
+                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasSweetPotato"> Sweet Potato/Yams</span>
+                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasSquash"> Squash</span>
+                            <span><input type="checkbox" data-ng-model="dish.starchyVegetables.hasBeets"> Beets</span>
                         </div>
                     </div>
                     <div class="row">
@@ -137,8 +137,8 @@
                             <span class="sd-label">Contains Added Sugar</span>
                         </div>
                         <div class="col-xs-3">
-                            <input type="radio" name="hasAddedSugar" value="true" data-ng-model="dish.hasAddedSugar">Yes
-                            <input type="radio" name="hasAddedSugar" value="false" data-ng-model="dish.hasAddedSugar">No
+                            <input type="radio" name="containsSugar" value="true" data-ng-model="dish.containsSugar">Yes
+                            <input type="radio" name="containsSugar" value="false" data-ng-model="dish.containsSugar">No
                         </div>
                     </div>
                     <div class="row">
@@ -152,7 +152,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-3">
-                            <button type="submit" class="btn btn-primary" data-ng-click="saveSuggestedDish()">Submit</button>
+                            <button type="submit" class="btn btn-primary" data-ng-click="saveSuggestedDish(dishForm)">Submit</button>
                         </div>
                     </div>
                     <br>
